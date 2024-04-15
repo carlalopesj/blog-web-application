@@ -1,0 +1,29 @@
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--background);
+    color: white;
+    height: 100px;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.nav-link ul {
+    display: flex;
+    gap: 30px;
+    font-weight: 600;
+}
+
+.nav-link a {
+    color: white;
+    transition: 0.3s;
+}
+
+.nav-link a:hover {
+    color: rgb(182, 181, 181);
+}
