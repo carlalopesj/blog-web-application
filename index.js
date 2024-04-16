@@ -34,6 +34,15 @@ app.post("/submit", (req, res) => {
     }, "100");
 });
 
+
+
+app.post("/delete/:index", (req, res) => { //Deletar um post
+    const index = req.params.index;
+    console.log(index);
+    posts.splice(index, 1);
+    res.redirect("/");
+});
+
 //Abrir a porta*
 app.listen(port, () => {
     console.log(`Server running on ${port}`);
