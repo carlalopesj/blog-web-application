@@ -1,0 +1,12 @@
+<h1>Editar Post</h1>
+
+<form method="POST" action="/edit/<%= index %>">
+
+    <label for="newTitle">New Title: </label>
+    <input type="text" id="newTitle" name="newTitle" value="<%= post.title %>"/><br>
+    <label for="newPostxt">New Content: </label>
+    <textarea type="text" id="newPostxt" name="newPostxt"><%= post.text %></textarea><br>
+    <button type="submit" id="btnSave" name="btnSave">Save</button>
+
+</form>
+

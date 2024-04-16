@@ -34,13 +34,34 @@ app.post("/submit", (req, res) => {
     }, "100");
 });
 
+app.get("/edit/:index", (req, res) => {
+    const index = req.params.index;
+    const post = posts[index];
+    console.log("post ", post);
+    res.render("edit.ejs", {index : index, post: post});
+});
 
+app.post("/edit/:index", (req, res) => {
+    const index = req.params.index;
+    console.log("index no post " + index);
+    const updatedPost = {
+        title : req.body["newTitle"],
+        text : req.body["newPostxt"]
+    };
+    console.log(updatedPost);
+    posts[index] = updatedPost;
+    setTimeout(() => {
+        res.redirect("/");
+    }, "100");
+});
 
 app.post("/delete/:index", (req, res) => { //Deletar um post
     const index = req.params.index;
-    console.log(index);
+    //console.log(index);
     posts.splice(index, 1);
-    res.redirect("/");
+    setTimeout(() => {    //Da um pequeno tempo de carregamento
+        res.redirect("/");
+    }, "100");
 });
 
 //Abrir a porta*

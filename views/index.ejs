@@ -8,10 +8,11 @@
             <h2><%= post.title %></h2>
             <p><%= post.text %></p>
             <form method="POST" action="/edit/<%= index %>">
-                <button type="submit">Editar</button>
+                <a href="/edit/<%= index %>">Edit</a>
             </form>
+            
             <form method="POST" action="/delete/<%= index %>">
-                <button type="submit">Excluir</button>
+                <button type="submit">Delete</button>
             </form>
         </div>
     <% }) %>
