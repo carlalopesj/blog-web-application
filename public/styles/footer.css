@@ -3,4 +3,10 @@ footer {
     font-size: 0.8rem;
     background-color: var(--background);
     color: #dbd02d;
+    padding-bottom: 0.1rem;
+}
+
+.footer-author {
+    padding-top: 15px;
+    margin-bottom: 3px;
 }

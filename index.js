@@ -59,9 +59,7 @@ app.post("/delete/:index", (req, res) => { //Deletar um post
     const index = req.params.index;
     //console.log(index);
     posts.splice(index, 1);
-    setTimeout(() => {    //Da um pequeno tempo de carregamento
-        res.redirect("/");
-    }, "100");
+    res.redirect("/");
 });
 
 //Abrir a porta*

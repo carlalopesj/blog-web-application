@@ -1,12 +1,21 @@
-<h1>Editar Post</h1>
+<%- include('partials/header.ejs') %>
 
-<form method="POST" action="/edit/<%= index %>">
+<link rel="stylesheet" href="../public/styles/edit.css" />
 
-    <label for="newTitle">New Title: </label>
-    <input type="text" id="newTitle" name="newTitle" value="<%= post.title %>"/><br>
-    <label for="newPostxt">New Content: </label>
-    <textarea type="text" id="newPostxt" name="newPostxt"><%= post.text %></textarea><br>
-    <button type="submit" id="btnSave" name="btnSave">Save</button>
+<body>
+    <section id="edit-container">
+        <h1>Edit Post</h1>
+        <form method="POST" action="/edit/<%= index %>">
+            <div class="form-edit-container">
+                <label for="newTitle">New Title: </label>
+                <input type="text" id="newTitle" name="newTitle" value="<%= post.title %>"/><br>
+                <label for="newPostxt">New Content: </label>
+                <textarea type="text" id="newPostxt" name="newPostxt" rols="5" cols="100" maxlength="300"><%= post.text %></textarea><br>
+                <button type="submit" id="btnSave" name="btnSave">Save</button>
+            </div>
+        </form>
+    </section>
+</body>
 
-</form>
+<%- include('partials/footer.ejs') %>
 

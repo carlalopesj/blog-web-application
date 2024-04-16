@@ -6,6 +6,10 @@
     background-color: var(--background);
     color: white;
     height: 100px;
+    box-shadow: 5px 1px 5px var(--boxshadow);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
 }
 
 .logo {
@@ -22,6 +26,7 @@
 .nav-link a {
     color: white;
     transition: 0.3s;
+    text-decoration: none;
 }
 
 .nav-link a:hover {
