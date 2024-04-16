@@ -7,31 +7,32 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let posts = [] //Array para "armazenar" os posts
+
 //Rotas GET
 app.get("/", (req, res) => {
-    res.render("index.ejs");
-});
-
-app.get("/post", (req, res) => {
-    res.render("post.ejs");
-});
-
-app.get("/view", (req, res) => {
-    res.render("view.ejs");
+    res.render("index.ejs", { posts });
 });
 
 app.get("/contact", (req, res) => {
     res.render("contact.ejs");
 });
 
+app.get("/write", (req, res) => {
+    res.render("write.ejs");
+});
+
 //Métodos POST
 app.post("/submit", (req, res) => {
-    res.render("index.ejs",
-    {
-        title : req.body["title"],
-        text : req.body["postxt"]
-    });
-})
+    const newPost = {
+        title: req.body["title"],
+        text: req.body["postxt"]
+    };
+    posts.push(newPost);
+    setTimeout(() => {    //Da um pequeno tempo de carregamento
+        res.redirect("/");
+    }, "100");
+});
 
 //Abrir a porta*
 app.listen(port, () => {

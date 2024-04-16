@@ -1,17 +1,22 @@
 <%- include('partials/header.ejs') %>
 
-
 <h1>Olá teste</h1>
 
-<form method="POST" action="/submit">
-    <label for="title">Title: </label>
-    <input type="text" id="title" name="title"/><br>
-    <label for="postxt">Text: </label>
-    <input type="text" id="postxt" name="postxt"/>
-    <input type="submit" id="btnsub" name="btnsub"/>
-</form>
-
-<h1><%= title %></h1>
-<p><%= text %></p>
+<% if (posts.length > 0) { %>
+    <% posts.forEach((post, index) => { %>
+        <div>
+            <h2><%= post.title %></h2>
+            <p><%= post.text %></p>
+            <form method="POST" action="/edit/<%= index %>">
+                <button type="submit">Editar</button>
+            </form>
+            <form method="POST" action="/delete/<%= index %>">
+                <button type="submit">Excluir</button>
+            </form>
+        </div>
+    <% }) %>
+<% } else { %>
+    <h2>Seus post aparecerão aqui</h2>
+<% } %>
 
 <%- include('partials/footer.ejs') %>
